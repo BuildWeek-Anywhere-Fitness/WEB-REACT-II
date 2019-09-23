@@ -13,6 +13,7 @@ const initialState = {
 export const registerReducer = (state = initialState, action) => {
     switch (action.type) {
         case REGISTER_START:
+                console.log('reducer:', action)
             return {
                 ...state,
                 error: "",
