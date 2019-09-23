@@ -1,7 +1,52 @@
 .App {
-  text-align: center;
+  .nav {
+    margin: 20px;
 
-  .test {
-    color: dodgerblue;
+    .nav-links {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      margin: auto 10px;
+
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.5rem;
+      }
+
+      .user-links {
+        a {
+          margin: auto 10px;
+        }
+      }
+    }
+  }
+
+  .welcome {
+    text-align: center;
+    .welcome-header {
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .welcome-links {
+        display: flex;
+        flex-flow: column;
+        font-size: 1.5rem;
+        margin: 10px auto;
+      }
+    }
+  }
+
+  .home {
+    text-align: center;
+  }
+
+  .login {
+    text-align: center;
+  }
+
+  .register {
+    text-align: center;
   }
 }
