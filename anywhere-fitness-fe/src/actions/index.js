@@ -4,10 +4,10 @@ export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 export const register = credentials => dispatch => {
-    dispatch({ type: REGISTER_START });
+    dispatch({ type: REGISTER_START })
     return axiosWithAuth()
         .post("https://anywhere-health.herokuapp.com/api/users/register", credentials)
-        .then(res => console.log(res))
+        .then(res => localStorage.setItem("token", res.data.access_token))
         .catch(err => console.log(err));
 };
 

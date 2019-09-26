@@ -7,6 +7,6 @@ export const axiosWithAuth = () => {
         headers: {
             Authorization: token
         },
-        baseURL: "https://anywhere-health.herokuapp.com"
+        // baseURL: "https://anywhere-health.herokuapp.com"
     });
 }; 

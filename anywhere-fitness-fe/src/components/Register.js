@@ -6,9 +6,9 @@ import { register } from '../actions'
 export class Register extends Component {
     state = {
         credentials: {
-            fullname: "",
             username: "",
-            password: ""
+            password: "",
+            instructor: true
         }
     };
 
@@ -40,13 +40,6 @@ export class Register extends Component {
                 <form className="register-form" onSubmit={this.register}>
                     <input
                         type="text"
-                        name="fullname"
-                        placeholder="Full Name"
-                        value={this.state.credentials.fullname}
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        type="text"
                         name="username"
                         placeholder="Username"
                         value={this.state.credentials.username}
@@ -59,6 +52,15 @@ export class Register extends Component {
                         value={this.state.credentials.password}
                         onChange={this.handleChange}
                     />
+
+                    <input 
+                        type="checkbox" 
+                        name="instructor"
+                        placeholder="Instructor" 
+                        onChange={this.state.onCheckboxChange} 
+                        value={this.state.instructor} 
+                    /> <p2>Check box above if you are an Instructor!</p2>
+                
                     <button>
                         {this.props.registering ? (
                             <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
