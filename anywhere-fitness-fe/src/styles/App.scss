@@ -1,0 +1,88 @@
+.App {
+  font-size: 1.2rem;
+  .nav {
+    margin: 20px;
+
+    .nav-links {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      margin: auto 10px;
+
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.5rem;
+      }
+
+      .user-links {
+        a {
+          margin: auto 10px;
+        }
+      }
+    }
+  }
+
+  .welcome {
+    text-align: center;
+    .welcome-header {
+      a {
+        text-decoration: none;
+        margin: 5px auto;
+        color: #fff;
+        background-color: dodgerblue;
+        border-color: dodgerblue;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 5px 20px;
+      }
+      .welcome-links {
+        display: flex;
+        flex-flow: column;
+        font-size: 1.5rem;
+        margin: 10px auto;
+      }
+    }
+  }
+
+  .home {
+    text-align: center;
+  }
+
+  .login {
+    text-align: center;
+  }
+
+  .register {
+    text-align: center;
+
+    .register-form {
+      display: flex;
+      flex-flow: column;
+      margin: 10px auto;
+
+      input {
+        margin: 5px auto;
+        width: 15%;
+        height: 25px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0px 5px grey;
+        padding: 10px 10px;
+        font-size: 1rem;
+      }
+
+      button {
+        margin: 5px auto;
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 5px 20px;
+      }
+    }
+  }
+}
