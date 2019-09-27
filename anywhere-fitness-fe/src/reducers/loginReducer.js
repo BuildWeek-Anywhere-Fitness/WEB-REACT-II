@@ -1,13 +1,15 @@
 import {
     LOGIN_START,
     LOGIN_SUCCESS,
+    LOGIN_FAILURE,
     LOGOUT_SUCCESS
 } from "../actions";
 
 const initialState = {
     error: "",
     loggingIn: false,
-    loggedIn: false
+    loggedIn: false,
+    instructor: ""
 };
 
 export const loginReducer = (state = initialState, action) => {
@@ -23,7 +25,15 @@ export const loginReducer = (state = initialState, action) => {
                 ...state,
                 error: "",
                 loggingIn: false,
-                loggedIn: true
+                loggedIn: true,
+                instructor: action.payload
+            }
+        case LOGIN_FAILURE:
+            return {
+                ...state,
+                loggingIn: false,
+                loggedIn: false,
+                error: action.payload
             }
         case LOGOUT_SUCCESS:
             return {

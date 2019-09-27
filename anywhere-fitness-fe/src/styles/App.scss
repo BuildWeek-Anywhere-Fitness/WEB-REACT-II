@@ -1,13 +1,14 @@
 .App {
   font-size: 1.2rem;
   .nav {
-    margin: 20px;
+    margin: 10px auto;
 
     .nav-links {
       display: flex;
       flex-flow: row;
       justify-content: space-between;
       margin: auto 10px;
+      height: 50px;
 
       a {
         text-decoration: none;
@@ -15,7 +16,14 @@
         font-size: 1.5rem;
       }
 
+      .home-link {
+        img {
+          height: 100px;
+        }
+      }
+
       .user-links {
+        margin: auto 10px;
         a {
           margin: auto 10px;
         }
@@ -48,6 +56,17 @@
 
   .home {
     text-align: center;
+    margin: 30px 80px;
+    .instructor-classes {
+      display: flex;
+      flex-flow: row;
+      .instructor-class {
+        box-shadow: 0 10px 10px grey;
+        padding: 30px;
+        margin: auto 20px;
+        cursor: pointer;
+      }
+    }
   }
 
   .login {

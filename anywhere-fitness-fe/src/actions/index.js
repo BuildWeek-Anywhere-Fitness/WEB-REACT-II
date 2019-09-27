@@ -1,4 +1,5 @@
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import cookie from 'react-cookies';
 
 export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -25,18 +26,45 @@ export const login = credentials => dispatch => {
         .post("https://anywhere-health.herokuapp.com/api/users/login", credentials)
         .then(res => {
             localStorage.setItem("token", res.data.token);
+            cookie.save('instructor', res.data.instructor)
+            dispatch({
+                type: LOGIN_SUCCESS,
+                payload: res.data.instructor
+            });
             dispatch({ type: LOGIN_SUCCESS });
             return true;
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            dispatch({
+                type: LOGIN_FAILURE,
+                payload: err.response.data
+            });
+        });
 };
 
-export const isLoggedIn = () => dispatch => {
-    dispatch({ type: LOGIN_SUCCESS });
+export const isLoggedIn = instructor => dispatch => {
+    dispatch({ type: LOGIN_SUCCESS, payload: instructor });
 }
 
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const logout = () => dispatch => {
     dispatch({ type: LOGOUT_SUCCESS });
     localStorage.removeItem("token");
+    cookie.remove('instructorId')
 }
+
+export const GETALLCLASSES_BYINSTRUCTOR_START = "GETALLCLASSES_BYINSTRUCTOR_START";
+export const GETALLCLASSES_BYINSTRUCTOR_SUCCESS = "GETALLCLASSES_BYINSTRUCTOR_SUCCESS";
+export const GETALLCLASSES_BYINSTRUCTOR_FAILURE = "GETALLCLASSES_BYINSTRUCTOR_FAILURE";
+export const getAllClassesByInstructor = instructorId => dispatch => {
+    dispatch({ type: GETALLCLASSES_BYINSTRUCTOR_START });
+    axiosWithAuth()
+        .get(`https://anywhere-health.herokuapp.com/api/classes/join/id`)
+        .then(res => {
+            dispatch({
+                type: GETALLCLASSES_BYINSTRUCTOR_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => console.log(err))
+} 

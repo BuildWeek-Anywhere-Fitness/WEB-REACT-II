@@ -22,7 +22,6 @@ export class Login extends Component {
 
     login = e => {
         e.preventDefault();
-        console.log('component', this.props)
         this.props
             .login(this.state.credentials)
             .then(res => {
@@ -68,7 +67,7 @@ const mapStateToProps = state => {
     console.log(state)
     return {
         error: state.loginReducer.error,
-        loggingIn: state.loginReducer.loggingIn
+        loggingIn: state.loginReducer.loggingIn,
     }
 }
 

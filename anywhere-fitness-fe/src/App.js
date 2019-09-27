@@ -8,12 +8,14 @@ import Register from './components/Register';
 import PrivateRoute from "./components/PrivateRoute";
 import { connect } from "react-redux";
 import { isLoggedIn, logout } from './actions';
+import Logo from './images/logo.png';
+import cookie from 'react-cookies';
 
 class App extends React.Component {
 
   componentDidMount() {
     if (localStorage.getItem("token")) {
-      this.props.isLoggedIn()
+      this.props.isLoggedIn(cookie.load('instructor'))
     }
   }
 
@@ -24,7 +26,7 @@ class App extends React.Component {
           <nav className="nav">
             <div className="nav-links">
               <div className="home-link">
-                <NavLink to="/home">Anywhere Fitness</NavLink>
+                <NavLink to="/home"><img src={Logo} alt="anyhwere-fitness-logo" /></NavLink>
               </div>
               {!this.props.loggedIn ? (
                 <div className="user-links">
@@ -82,7 +84,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: state.loginReducer.loggedIn
+    loggedIn: state.loginReducer.loggedIn,
   }
 }
 
