@@ -52,6 +52,33 @@
 
   .login {
     text-align: center;
+    .login-form {
+      display: flex;
+      flex-flow: column;
+      margin: 10px auto;
+
+      input {
+        margin: 5px auto;
+        width: 15%;
+        height: 25px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0px 5px grey;
+        padding: 10px 10px;
+        font-size: 1rem;
+      }
+
+      button {
+        margin: 5px auto;
+        color: #fff;
+        background-color: dodgerblue;
+        border-color: dodgerblue;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 5px 20px;
+      }
+    }
   }
 
   .register {
@@ -76,8 +103,8 @@
       button {
         margin: 5px auto;
         color: #fff;
-        background-color: #007bff;
-        border-color: #007bff;
+        background-color: dodgerblue;
+        border-color: dodgerblue;
         border-radius: 5px;
         font-size: 1.1rem;
         font-weight: bold;

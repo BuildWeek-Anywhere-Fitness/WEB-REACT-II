@@ -23,6 +23,20 @@ export const login = credentials => dispatch => {
     dispatch({ type: LOGIN_START });
     return axiosWithAuth()
         .post("https://anywhere-health.herokuapp.com/api/users/login", credentials)
-        .then(res => console.log(res))
+        .then(res => {
+            localStorage.setItem("token", res.data.token);
+            dispatch({ type: LOGIN_SUCCESS });
+            return true;
+        })
         .catch(err => console.log(err));
 };
+
+export const isLoggedIn = () => dispatch => {
+    dispatch({ type: LOGIN_SUCCESS });
+}
+
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT_SUCCESS });
+    localStorage.removeItem("token");
+}
