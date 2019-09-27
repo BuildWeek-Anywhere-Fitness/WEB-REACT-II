@@ -59,7 +59,7 @@ export const GETALLCLASSES_BYINSTRUCTOR_FAILURE = "GETALLCLASSES_BYINSTRUCTOR_FA
 export const getAllClassesByInstructor = instructorId => dispatch => {
     dispatch({ type: GETALLCLASSES_BYINSTRUCTOR_START });
     axiosWithAuth()
-        .get(`https://anywhere-health.herokuapp.com/api/classes/join/id`)
+        .get(`https://anywhere-health.herokuapp.com/api/classes`)
         .then(res => {
             dispatch({
                 type: GETALLCLASSES_BYINSTRUCTOR_SUCCESS,
