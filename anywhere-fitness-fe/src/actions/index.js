@@ -31,7 +31,6 @@ export const login = credentials => dispatch => {
                 type: LOGIN_SUCCESS,
                 payload: res.data.instructor
             });
-            dispatch({ type: LOGIN_SUCCESS });
             return true;
         })
         .catch(err => {
@@ -66,5 +65,85 @@ export const getAllClassesByInstructor = instructorId => dispatch => {
                 payload: res.data
             })
         })
+        .catch(err => {
+            dispatch({
+                type: GETALLCLASSES_BYINSTRUCTOR_FAILURE,
+                payload: err.response.data
+            })
+        })
+}
+
+export const CREATE_CLASS_START = "CREATE_CLASS_START";
+export const CREATE_CLASS_SUCCESS = "CREATE_CLASS_SUCCESS";
+export const CREATE_CLASS_FAILURE = "CREATE_CLASS_FAILURE";
+export const createClass = singleClass => dispatch => {
+    dispatch({ type: CREATE_CLASS_START });
+    console.log(singleClass)
+    return axiosWithAuth()
+        .post(`https://anywhere-health.herokuapp.com/api/classes`, singleClass)
+        .then(res => {
+            dispatch({
+                type: CREATE_CLASS_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: CREATE_CLASS_FAILURE,
+                payload: err.response.data.message
+            })
+        })
+}
+
+export const GETCLASS_BYID_START = "GETCLASS_BYID_START";
+export const GETCLASS_BYID_SUCCESS = "GETCLASS_BYID_SUCCESS";
+export const GETCLASS_BYID_FAILURE = "GETCLASS_BYID_FAILURE";
+export const getClassByInstructor = classId => dispatch => {
+    dispatch({ type: GETCLASS_BYID_START });
+    axiosWithAuth()
+        .get(`https://anywhere-health.herokuapp.com/api/classes`)
+        .then(res => {
+            dispatch({
+                type: GETCLASS_BYID_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: GETCLASS_BYID_FAILURE,
+                payload: err.response.data
+            })
+        })
+}
+
+export const UPDATE_INSTRUCTOR_CLASS_START = "UPDATE_INSTRUCTOR_CLASS_START";
+export const UPDATE_INSTRUCTOR_CLASS_SUCCESS = "UPDATE_INSTRUCTOR_CLASS_SUCCESS";
+export const UPDATE_INSTRUCTOR_CLASS_FAILURE = "UPDATE_INSTRUCTOR_CLASS_FAILURE";
+export const updateClass = (classId, singleClass) => dispatch => {
+    dispatch({ type: UPDATE_INSTRUCTOR_CLASS_START });
+    axiosWithAuth()
+        .put(`https://anywhere-health.herokuapp.com/api/classes/:id`, singleClass)
+        .then(res => {
+            dispatch({
+                type: UPDATE_INSTRUCTOR_CLASS_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: UPDATE_INSTRUCTOR_CLASS_FAILURE,
+                payload: err.response.data.message
+            })
+        })
+}
+
+export const DELETE_INSTRUCTOR_CLASS_START = "DELETE_INSTRUCTOR_CLASS_START"
+export const DELETE_INSTRUCTOR_CLASS_SUCESS = "DELETE_INSTRUCTOR_CLASS_SUCESS"
+export const DELETE_INSTRUCTOR_CLASS_FAILURE = "DELETE_INSTRUCTOR_CLASS_FAILURE"
+export const deleteClass = (classId, singleClass) => dispatch => {
+    dispatch({ type: DELETE_INSTRUCTOR_CLASS_START });
+    axiosWithAuth()
+        .delete(`https://anywhere-health.herokuapp.com/api/classes/:id`, singleClass)
+        .then(res => console.log(res))
         .catch(err => console.log(err))
 } 

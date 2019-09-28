@@ -5,11 +5,13 @@ import Home from './components/Home';
 import Welcome from './components/Welcome';
 import Login from './components/Login';
 import Register from './components/Register';
+import UpdateClassForm from './components/UpdateClassForm';
 import PrivateRoute from "./components/PrivateRoute";
 import { connect } from "react-redux";
 import { isLoggedIn, logout } from './actions';
 import Logo from './images/logo.png';
 import cookie from 'react-cookies';
+import AddInstructorClass from './components/AddInstructorClass';
 
 class App extends React.Component {
 
@@ -74,6 +76,25 @@ class App extends React.Component {
                 {...props}
               />
             )} />
+
+          <Route
+             path="/add-class"
+             render={props => (
+               <AddInstructorClass
+                 {...props}
+               />
+             )}
+           />
+ 
+          <Route
+            path="/update-class-form/:id"
+          path="/update-class-form"
+          render={(props) => (
+            <UpdateClassForm
+              {...props}
+            />
+          )}
+        />
 
         </div>
       </Router >
