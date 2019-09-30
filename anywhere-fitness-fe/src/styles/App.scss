@@ -1,13 +1,14 @@
 .App {
   font-size: 1.2rem;
   .nav {
-    margin: 20px;
+    margin: 10px auto;
 
     .nav-links {
       display: flex;
       flex-flow: row;
       justify-content: space-between;
       margin: auto 10px;
+      height: 50px;
 
       a {
         text-decoration: none;
@@ -15,7 +16,14 @@
         font-size: 1.5rem;
       }
 
+      .home-link {
+        img {
+          height: 50px;
+        }
+      }
+
       .user-links {
+        margin: auto 10px;
         a {
           margin: auto 10px;
         }
@@ -48,10 +56,66 @@
 
   .home {
     text-align: center;
+    margin: 30px 80px;
+    .instructor-classes {
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      justify-content: space-evenly;
+      .instructor-class {
+        box-shadow: 0 10px 10px grey;
+        padding: 20px 40px;
+        margin: auto 20px;
+        font-size: 1rem;
+        width: 15%;
+      }
+    }
+    button {
+      margin: 5px auto;
+      color: #fff;
+      background-color: dodgerblue;
+      border-color: dodgerblue;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 5px 20px;
+      cursor: pointer;
+      outline: none;
+    }
   }
 
   .login {
     text-align: center;
+    .login-form {
+      display: flex;
+      flex-flow: column;
+      margin: 10px auto;
+
+      input {
+        margin: 5px auto;
+        width: 15%;
+        height: 25px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0px 5px grey;
+        padding: 10px 10px;
+        font-size: 1rem;
+      }
+
+      button {
+        margin: 5px auto;
+        color: #fff;
+        background-color: dodgerblue;
+        border-color: dodgerblue;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 5px 20px;
+        cursor: pointer;
+        outline: none;
+      }
+    }
   }
 
   .register {
@@ -76,12 +140,76 @@
       button {
         margin: 5px auto;
         color: #fff;
-        background-color: #007bff;
-        border-color: #007bff;
+        background-color: dodgerblue;
+        border-color: dodgerblue;
         border-radius: 5px;
         font-size: 1.1rem;
         font-weight: bold;
         padding: 5px 20px;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+  }
+
+  .update-class-form {
+    margin: 30px 80px;
+    form {
+      display: flex;
+      flex-flow: column;
+      input {
+        margin: 5px auto;
+        width: 15%;
+        height: 25px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0px 5px grey;
+        padding: 10px 10px;
+        font-size: 1rem;
+      }
+
+      button {
+        margin: 5px auto;
+        color: #fff;
+        background-color: dodgerblue;
+        border-color: dodgerblue;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 5px 20px;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+  }
+
+  .add-class-form {
+    margin: 30px 80px;
+    form {
+      display: flex;
+      flex-flow: column;
+      input {
+        margin: 5px auto;
+        width: 15%;
+        height: 25px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0px 5px grey;
+        padding: 10px 10px;
+        font-size: 1rem;
+      }
+
+      button {
+        margin: 5px auto;
+        color: #fff;
+        background-color: dodgerblue;
+        border-color: dodgerblue;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 5px 20px;
+        cursor: pointer;
+        outline: none;
       }
     }
   }

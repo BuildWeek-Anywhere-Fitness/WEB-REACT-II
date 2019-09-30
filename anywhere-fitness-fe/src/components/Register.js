@@ -5,7 +5,7 @@ import { register } from '../actions'
 
 export class Register extends Component {
     state = {
-        credentials: {
+        user: {
             username: "",
             password: "",
             instructor: true
@@ -14,8 +14,8 @@ export class Register extends Component {
 
     handleChange = e => {
         this.setState({
-            credentials: {
-                ...this.state.credentials,
+            user: {
+                ...this.state.user,
                 [e.target.name]: e.target.value
             }
         });
@@ -25,7 +25,7 @@ export class Register extends Component {
     register = e => {
         e.preventDefault();
         this.props
-            .register(this.state.credentials)
+            .register(this.state.user)
             .then(res => {
                 if (res) {
                     this.props.history.push("./login");
@@ -42,14 +42,14 @@ export class Register extends Component {
                         type="text"
                         name="username"
                         placeholder="Username"
-                        value={this.state.credentials.username}
+                        value={this.state.user.username}
                         onChange={this.handleChange}
                     />
                     <input
                         type="password"
                         name="password"
                         placeholder="Password"
-                        value={this.state.credentials.password}
+                        value={this.state.user.password}
                         onChange={this.handleChange}
                     />
 
@@ -59,11 +59,11 @@ export class Register extends Component {
                         placeholder="Instructor" 
                         onChange={this.state.onCheckboxChange} 
                         value={this.state.instructor} 
-                    /> <p2>Check box above if you are an Instructor!</p2>
+                    /> <p2>Check the box above if you are an Instructor!</p2>
                 
                     <button>
-                        {this.props.registering ? (
-                            <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
+                        {this.props.creatingUser ? (
+                            <Loader type="TailSpin" color="#ffffff" height="26" width="26" />
                         ) : (
                                 "Register"
                             )}
